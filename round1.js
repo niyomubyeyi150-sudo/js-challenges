@@ -104,3 +104,41 @@ console.log("\nChallenge 4: Convert Seconds");
 console.log(convertSeconds(7509));  
 console.log(convertSeconds(3600)); 
 console.log(convertSeconds(0));    
+
+
+// Challenge 5: changeMaker(amount)
+// Pseudocode:
+// 1. Store the denominations from largest to smallest.
+// 2. For each denomination, calculate how many pieces fit.
+// 3. Print the denomination and its count if the count is greater than zero.
+// 4. Subtract the value of those pieces from the remaining amount.
+// 5. Continue until all denominations have been checked.
+
+function changeMaker(amount) {
+    if (amount < 0 || !Number.isInteger(amount)) {
+        console.log("Please enter a non-negative whole amount.");
+        return;
+    }
+
+    const denominations = [5000, 2000, 1000, 500, 100, 50, 20, 10, 5, 1];
+
+    for (let i = 0; i < denominations.length; i++) {
+        const denomination = denominations[i];
+        const count = Math.floor(amount / denomination);
+
+        if (count > 0) {
+            console.log(`${count} x ${denomination}`);
+            amount = amount % denomination;
+        }
+    }
+}
+
+console.log("\nChallenge 5: Change Maker");
+console.log("Amount: 7385");
+changeMaker(7385);
+
+console.log("\nAmount: 10");
+changeMaker(10);
+
+console.log("\nAmount: 0");
+changeMaker(0); 
