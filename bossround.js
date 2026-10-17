@@ -103,3 +103,49 @@ console.log(romanNumeral(0));    // Invalid (edge case)
 // Readability vs. cleverness:
 // Two arrays clearly connect each number to its symbol.
 // A long chain of nested conditions would be harder to maintain.
+
+
+
+// Challenge 20: nationalIdCheck(id)
+// Pseudocode:
+// 1. Convert the ID to a string.
+// 2. Check that it contains exactly 16 digits.
+// 3. Check that the first digit is 1.
+// 4. Read digits 2–5 as the birth year.
+// 5. Check that the year is between 1900 and the current year.
+// 6. Check that the sixth digit is 7 or 8.
+// 7. Return true if every check passes.
+// 8. Otherwise, return a message for the first failed check.
+
+function nationalIdCheck(id) {
+    const idString = String(id);
+
+    if (!/^\d{16}$/.test(idString)) {
+        return "Invalid ID: must contain exactly 16 digits.";
+    }
+
+    if (idString[0] !== "1") {
+        return "Invalid ID: the first digit must be 1.";
+    }
+
+    const birthYear = Number(idString.slice(1, 5));
+    const currentYear = new Date().getFullYear();
+
+    if (birthYear < 1900 || birthYear > currentYear) {
+        return "Invalid ID: birth year must be between 1900 and " + currentYear + ".";
+    }
+
+    if (idString[5] !== "7" && idString[5] !== "8") {
+        return "Invalid ID: the sixth digit must be 7 or 8.";
+    }
+
+    return true;
+}
+
+// Tests
+console.log("\nChallenge 20: National ID Check");
+console.log(nationalIdCheck("1200071234567890")); // true for this simplified format
+console.log(nationalIdCheck("2200071234567890")); // Invalid: first digit
+console.log(nationalIdCheck("12000712345"));      // Invalid: length
+console.log(nationalIdCheck("1189971234567890")); // Invalid: birth year 1899
+console.log(nationalIdCheck("1200061234567890")); // Invalid: sixth digit
