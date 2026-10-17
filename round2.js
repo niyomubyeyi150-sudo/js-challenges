@@ -17,10 +17,39 @@ function reverseString(str) {
 
 // Tests
 console.log("Challenge 6: reverseString");
-console.log(reverseString("hello"));  // "olleh"
-console.log(reverseString("Kigali")); // "ilagiK"
-console.log(reverseString(""));       // "" (edge case)
+console.log(reverseString("hello")); 
+console.log(reverseString("Kigali")); 
+console.log(reverseString(""));     
 
 // Readability vs. cleverness:
 // A loop makes each reversal step easy for beginners to understand.
 // Using split(), reverse(), and join() is shorter but violates this challenge's rule.
+
+
+// Challenge 7: countChar(str, char)
+// Pseudocode:
+// 1. Convert the input string and target character to lowercase.
+// 2. Set count to zero.
+// 3. Loop through each character in the string.
+// 4. If it matches the target, increase count.
+// 5. Return count.
+
+function countChar(str, char) {
+    let count = 0;
+    const lowerStr = str.toLowerCase();
+    const lowerChar = char.toLowerCase();
+
+    for (let i = 0; i < lowerStr.length; i++) {
+        if (lowerStr[i] === lowerChar) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+// Tests
+console.log("\nChallenge 7: countChar");
+console.log(countChar("Banana", "a"));
+console.log(countChar("Hello", "L")); 
+console.log(countChar("Hello", "z")); 
