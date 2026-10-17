@@ -23,3 +23,31 @@ console.log(isLeapYear(1900));
 console.log(isLeapYear(2000)); 
 
 
+// Challenge 2: getBMICategory(weightKg, heightM)
+// Pseudocode:
+// 1. If height is less than or equal to zero, return "Invalid height".
+// 2. Calculate BMI = weight / (height * height).
+// 3. Return the category based on the BMI value.
+
+function getBMICategory(weightKg, heightM) {
+    if (heightM <= 0) {
+        return "Invalid height";
+    }
+
+    const bmi = weightKg / (heightM * heightM);
+
+    if (bmi < 18.5) {
+        return "Underweight";
+    } else if (bmi < 25) {
+        return "Normal";
+    } else if (bmi < 30) {
+        return "Overweight";
+    } else {
+        return "Obese";
+    }
+}
+
+console.log("\nChallenge 2: BMI Category");
+console.log(getBMICategory(50, 1.7));  
+console.log(getBMICategory(70, 1.7)); 
+console.log(getBMICategory(85, 1.7));
