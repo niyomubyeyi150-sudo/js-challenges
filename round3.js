@@ -16,10 +16,10 @@ function sumTo(n) {
 }
 // Tests: compare both methods
 console.log("Challenge 13: Sum to n");
-console.log(sumTo(5), sumToFormula(5));   // 15, 15
-console.log(sumTo(10), sumToFormula(10)); // 55, 55
-console.log(sumTo(1), sumToFormula(1));   // 1, 1
-console.log(sumTo(0), sumToFormula(0));   // 0, 0 (edge case)
+console.log(sumTo(5));   // 15, 15
+console.log(sumTo(10)); // 55, 55
+console.log(sumTo(1));   // 1, 1
+console.log(sumTo(0));   // 0, 0 (edge case)
 
 // Challenge 14: isPrime(n)
 // Pseudocode:
@@ -47,3 +47,52 @@ console.log("\nChallenge 14: Prime Number");
 console.log(isPrime(7));  // true
 console.log(isPrime(10)); // false
 console.log(isPrime(2));  // true
+
+
+
+ // Challenge 15: printPyramid(rows)
+ // Pseudocode:
+ // 1. Loop from row 1 to rows.
+ // 2. Add spaces before the stars to center each row.
+ // 3. Calculate stars using 2 * row - 1.
+ // 4. Print the spaces and stars together.
+
+function printPyramid(rows) {
+    for (let row = 1; row <= rows; row++) {
+        let spaces = "";
+        let stars = "";
+
+        // Add spaces before the stars
+        for (let j = 1; j <= rows - row; j++) {
+            spaces += " ";
+        }
+
+        // Add an odd number of stars
+        for (let j = 1; j <= (2 * row - 1); j++) {
+            stars += "*";
+        }
+
+        console.log(spaces + stars);
+    }
+}
+
+// Tests
+console.log("Pyramid with 4 rows:");
+printPyramid(4);
+
+// Expected:
+//    *
+//   ***
+//  *****
+// *******
+
+console.log("Pyramid with 1 row:");
+printPyramid(1);
+
+// Expected:
+// *
+
+console.log("Pyramid with 0 rows:");
+printPyramid(0);
+
+// Expected: no output (edge case)
