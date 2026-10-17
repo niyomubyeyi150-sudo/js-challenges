@@ -144,3 +144,33 @@ console.log(maskPhone("12345"));      // "Invalid"
 console.log(maskPhone("07AB123456"));
 
 
+// Challenge 11: longestWord(sentence)
+// Pseudocode:
+// 1. Split the sentence into words.
+// 2. Set longest to an empty string.
+// 3. Loop through the words.
+// 4. Remove punctuation at the beginning and end of each word.
+// 5. If a word is longer than longest, save it.
+// 6. Return longest. Do not replace it when lengths are equal.
+
+function longestWord(sentence) {
+    const words = sentence.split(/\s+/);
+    let longest = "";
+
+    for (let i = 0; i < words.length; i++) {
+        const word = words[i].replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, "");
+
+        if (word.length > longest.length) {
+            longest = word;
+        }
+    }
+
+    return longest;
+}
+
+// Tests
+console.log("\nChallenge 11: longestWord");
+console.log(longestWord("I love programming")); // "programming"
+console.log(longestWord("small big"));          // "small" (tie: first wins)
+console.log(longestWord(""));                   // "" (edge case)
+
