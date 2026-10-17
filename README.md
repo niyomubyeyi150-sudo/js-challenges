@@ -15,62 +15,52 @@ week4-logic-challenges/
 └── README.md
 ```
 
-## Challenges and Points
+## Challenges
 
-### Round 1 – Fundamentals (1 point each)
+### Round 1 – Fundamentals 
 
-| No. | Challenge | Points |
+| No. | Challenge 
 |---|---|---:|
-| 1 | Leap Year Checker | 1 |
-| 2 | BMI Category | 1 |
-| 3 | Moto Fare Calculator | 1 |
-| 4 | Convert Seconds | 1 |
-| 5 | Change Maker | 1 |
-| | **Round 1 Total** | **5** |
+| 1 | Leap Year Checker 
+| 2 | BMI Category 
+| 3 | Moto Fare Calculator 
+| 4 | Convert Seconds 
+| 5 | Change Maker 
+
 
 ### Round 2 – String Challenges (2 points each)
 
-| No. | Challenge | Points |
+| No. | Challenge
 |---|---|---:|
-| 6 | Reverse a String | 2 |
-| 7 | Count a Character | 2 |
-| 8 | Palindrome Checker | 2 |
-| 9 | Title Case | 2 |
-| 10 | Mask Phone Number | 2 |
-| 11 | Longest Word | 2 |
-| 12 | String Compression | 2 |
-| | **Round 2 Total** | **14** |
+| 6 | Reverse a String 
+| 7 | Count a Character
+| 8 | Palindrome Checker 
+| 9 | Title Case 
+| 10 | Mask Phone Number
+| 11 | Longest Word 
+| 12 | String Compression 
+
 
 ### Round 3 – Logic and Algorithms (3 points each)
 
-| No. | Challenge | Points |
+| No. | Challenge 
 |---|---|---:|
-| 13 | Sum from 1 to n | 3 |
-| 14 | Prime Number Checker | 3 |
-| 15 | Pyramid Pattern | 3 |
-| 16 | Fibonacci Sequence | 3 |
-| 17 | Guessing Game Simulator | 3 |
-| | **Round 3 Total** | **15** |
+| 13 | Sum from 1 to n 
+| 14 | Prime Number Checker 
+| 15 | Pyramid Pattern
+| 16 | Fibonacci Sequence |
+| 17 | Guessing Game Simulator 
+
 
 ### Boss Round – Advanced Challenges (5 points each)
 
-| No. | Challenge | Points |
+| No. | Challenge
 |---|---|---:|
-| 18 | Password Validator | 5 |
-| 19 | Roman Numeral Converter | 5 |
-| 20 | National ID Checker | 5 |
-| | **Boss Round Total** | **15** |
+| 18 | Password Validator
+| 19 | Roman Numeral Converter 
+| 20 | National ID Checker 
+|
 
-### Total Points
-
-- Round 1: 5 points
-- Round 2: 14 points
-- Round 3: 15 points
-- Boss Round: 15 points
-
-**Maximum available: 49 points.**
-
-My actual points earned: **[Enter the points for the challenges you completed successfully.]**
 
 ## Rules Followed
 
@@ -81,16 +71,13 @@ My actual points earned: **[Enter the points for the challenges you completed su
 - I committed my work after solving each challenge.
 - I added comments comparing readable and clever approaches in at least two challenges.
 
-## How to Run the Code
 
-Make sure Node.js is installed. Open a terminal in the project folder and run each file separately:
-
-```bash
+# how I runed the codes
 node round1.js
 node round2.js
 node round3.js
 node boss.js
-```
+
 
 The results will appear in the terminal.
 
