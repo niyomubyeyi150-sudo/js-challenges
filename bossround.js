@@ -53,3 +53,53 @@ console.log(validatePassword(""));            // Edge case: empty password
 // Checking each rule separately makes errors easy to understand.
 // Combining all rules into one large condition is shorter but harder to debug.
 
+
+// Challenge 19: romanNumeral(n)
+// Pseudocode:
+// 1. If n is not an integer from 1 to 3999, return "Invalid".
+// 2. Store Roman numeral values from largest to smallest.
+// 3. Loop through each value.
+// 4. While n is at least that value, add its symbol to the result.
+// 5. Subtract that value from n.
+// 6. Return the completed Roman numeral.
+
+function romanNumeral(n) {
+    if (!Number.isInteger(n) || n < 1 || n > 3999) {
+        return "Invalid";
+    }
+
+    const values = [
+        1000, 900, 500, 400,
+        100, 90, 50, 40,
+        10, 9, 5, 4, 1
+    ];
+
+    const symbols = [
+        "M", "CM", "D", "CD",
+        "C", "XC", "L", "XL",
+        "X", "IX", "V", "IV", "I"
+    ];
+
+    let result = "";
+
+    for (let i = 0; i < values.length; i++) {
+        while (n >= values[i]) {
+            result += symbols[i];
+            n -= values[i];
+        }
+    }
+
+    return result;
+}
+
+// Tests
+console.log("\nChallenge 19: Roman Numerals");
+console.log(romanNumeral(1994)); // MCMXCIV
+console.log(romanNumeral(2026)); // MMXXVI
+console.log(romanNumeral(1));    // I
+console.log(romanNumeral(3999)); // MMMCMXCIX
+console.log(romanNumeral(0));    // Invalid (edge case)
+
+// Readability vs. cleverness:
+// Two arrays clearly connect each number to its symbol.
+// A long chain of nested conditions would be harder to maintain.
