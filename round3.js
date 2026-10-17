@@ -96,3 +96,42 @@ console.log("Pyramid with 0 rows:");
 printPyramid(0);
 
 // Expected: no output (edge case)
+
+
+
+// Challenge 16: fibonacci(n)
+// Pseudocode:
+// 1. Create an empty array for the Fibonacci numbers.
+// 2. Start with a = 0 and b = 1.
+// 3. Repeat n times.
+// 4. Add a to the array.
+// 5. Calculate the next number as a + b.
+// 6. Move b into a and the next number into b.
+// 7. Join the numbers with commas and spaces, then return the string.
+
+function fibonacci(n) {
+    const numbers = [];
+    let a = 0;
+    let b = 1;
+
+    for (let i = 0; i < n; i++) {
+        numbers.push(a);
+
+        const next = a + b;
+        a = b;
+        b = next;
+    }
+
+    return numbers.join(", ");
+}
+
+// Tests
+console.log("\nChallenge 16: Fibonacci");
+console.log(fibonacci(8)); // "0, 1, 1, 2, 3, 5, 8, 13"
+console.log(fibonacci(1)); // "0"
+console.log(fibonacci(2)); // "0, 1"
+console.log(fibonacci(0)); // "" (edge case)
+
+// Comparison:
+// Using a loop and two variables avoids complicated recursive calls.
+// Recursion can look elegant, but it is less suitable for this beginner exercise.
