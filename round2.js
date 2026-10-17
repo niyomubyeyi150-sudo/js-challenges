@@ -86,3 +86,36 @@ console.log(isPalindrome(""));
 // Comparing characters from both ends avoids building a second reversed string.
 // Building a cleaned string and reversing it can be simpler to read,
 // but the loop above demonstrates the comparison directly.
+
+
+// Challenge 8: isPalindrome(str)
+// Pseudocode:
+// 1. Convert the string to lowercase.
+// 2. Remove spaces, punctuation, and other non-alphanumeric characters.
+// 3. Compare characters from the beginning and end.
+// 4. If any pair differs, return false.
+// 5. If every pair matches, return true.
+
+function isPalindrome(str) {
+    const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+    for (let i = 0; i < cleaned.length / 2; i++) {
+        if (cleaned[i] !== cleaned[cleaned.length - 1 - i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// Tests
+console.log("\nChallenge 8: isPalindrome");
+console.log(isPalindrome("Never odd or even"));
+console.log(isPalindrome("Hello"));             
+console.log(isPalindrome("A man, a plan, a canal: Panama!")); 
+console.log(isPalindrome(""));                  
+
+// Readability vs. cleverness:
+// Comparing characters from both ends avoids building a second reversed string.
+// Building a cleaned string and reversing it can be simpler to read,
+// but the loop above demonstrates the comparison directly.
