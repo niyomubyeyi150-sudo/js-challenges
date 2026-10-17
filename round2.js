@@ -172,5 +172,46 @@ function longestWord(sentence) {
 console.log("\nChallenge 11: longestWord");
 console.log(longestWord("I love programming")); // "programming"
 console.log(longestWord("small big"));          // "small" (tie: first wins)
-console.log(longestWord(""));                   // "" (edge case)
+console.log(longestWord("")); // "" (edge case)
+
+
+// Challenge 12: compress(str)
+// Pseudocode:
+// 1. If the input is empty, return an empty string.
+// 2. Set count to one and create an empty result.
+// 3. Loop from the second character to the end.
+// 4. If the current character matches the previous one, increase count.
+// 5. Otherwise, add the previous character and count to result,
+//    then reset count to one.
+// 6. Add the final character and count.
+// 7. Return result.
+
+function compress(str) {
+    if (str.length === 0) {
+        return "";
+    }
+
+    let result = "";
+    let count = 1;
+
+    for (let i = 1; i < str.length; i++) {
+        if (str[i] === str[i - 1]) {
+            count++;
+        } else {
+            result += str[i - 1] + count;
+            count = 1;
+        }
+    }
+
+    result += str[str.length - 1] + count;
+
+    return result;
+}
+
+// Tests
+console.log("\nChallenge 12: compress");
+console.log(compress("aaabccdddd")); // "a3b1c2d4"
+console.log(compress("abc"));        // "a1b1c1"
+console.log(compress(""));           // "" (edge case)
+console.log(compress("aaaa"));       // "a4"
 
