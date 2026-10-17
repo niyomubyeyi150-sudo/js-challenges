@@ -77,3 +77,30 @@ console.log(motoFare(1));
 console.log(motoFare(2));
 console.log(motoFare(3));
  
+
+// Challenge 4: convertSeconds(total)
+// Pseudocode:
+// 1. Calculate hours by dividing total seconds by 3600.
+// 2. Find the remaining seconds.
+// 3. Calculate minutes from the remaining seconds.
+// 4. Find the remaining seconds again.
+// 5. Use padStart() to make minutes and seconds two digits.
+// 6. Return the formatted string.
+
+function convertSeconds(total) {
+    const hours = Math.floor(total / 3600);
+    const remainingAfterHours = total % 3600;
+
+    const minutes = Math.floor(remainingAfterHours / 60);
+    const seconds = remainingAfterHours % 60;
+
+    const formattedMinutes = String(minutes).padStart(2, "0");
+    const formattedSeconds = String(seconds).padStart(2, "0");
+
+    return `${hours}h ${formattedMinutes}m ${formattedSeconds}s`;
+}
+
+console.log("\nChallenge 4: Convert Seconds");
+console.log(convertSeconds(7509));  
+console.log(convertSeconds(3600)); 
+console.log(convertSeconds(0));    
