@@ -51,3 +51,29 @@ console.log("\nChallenge 2: BMI Category");
 console.log(getBMICategory(50, 1.7));  
 console.log(getBMICategory(70, 1.7)); 
 console.log(getBMICategory(85, 1.7));
+
+// Challenge 3: motoFare(km)
+// Pseudocode:
+// 1. If distance is less than or equal to zero, return zero.
+// 2. If distance is at most 2 km, return 300.
+// 3. Calculate extra kilometres using Math.ceil().
+// 4. Return 300 plus 107 for each extra kilometre.
+
+function motoFare(km) {
+    if (km <= 0) {
+        return 0;
+    }
+
+    if (km <= 2) {
+        return 300;
+    }
+
+    const extraKm = Math.ceil(km - 2);
+    return 300 + (extraKm * 107);
+}
+
+console.log("\nChallenge 3: Moto Fare");
+console.log(motoFare(1));
+console.log(motoFare(2));
+console.log(motoFare(3));
+ 
