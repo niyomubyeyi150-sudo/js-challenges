@@ -135,3 +135,52 @@ console.log(fibonacci(0)); // "" (edge case)
 // Comparison:
 // Using a loop and two variables avoids complicated recursive calls.
 // Recursion can look elegant, but it is less suitable for this beginner exercise.
+
+
+// Challenge 17: guessingGameSimulator(secret)
+// Pseudocode:
+// 1. Set the lowest possible guess to 1 and highest to 100.
+// 2. Set the guess count to zero.
+// 3. While the lowest value is not greater than the highest:
+//    a. Guess the middle of the remaining range.
+//    b. Increase the guess count.
+//    c. Print the guess.
+//    d. If the guess equals secret, return the count.
+//    e. If the guess is too low, move the lower limit up.
+//    f. If the guess is too high, move the upper limit down.
+// 4. Return -1 if secret is outside 1–100.
+
+function guessingGameSimulator(secret) {
+    if (!Number.isInteger(secret) || secret < 1 || secret > 100) {
+        console.log("Secret must be a whole number from 1 to 100.");
+        return -1;
+    }
+
+    let low = 1;
+    let high = 100;
+    let guesses = 0;
+
+    while (low <= high) {
+        const guess = Math.floor((low + high) / 2);
+        guesses++;
+
+        console.log("Guess:", guess);
+
+        if (guess === secret) {
+            return guesses;
+        } else if (guess < secret) {
+            low = guess + 1;
+        } else {
+            high = guess - 1;
+        }
+    }
+
+    return -1;
+}
+
+// Tests
+console.log("\nChallenge 17: Guessing Game");
+console.log("Secret 50, guesses:", guessingGameSimulator(50));
+console.log("Secret 1, guesses:", guessingGameSimulator(1));
+console.log("Secret 100, guesses:", guessingGameSimulator(100));
+console.log("Secret 0, result:", guessingGameSimulator(0)); // edge case
