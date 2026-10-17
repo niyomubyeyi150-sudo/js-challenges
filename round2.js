@@ -88,34 +88,59 @@ console.log(isPalindrome(""));
 // but the loop above demonstrates the comparison directly.
 
 
-// Challenge 8: isPalindrome(str)
+
+// Challenge 9: titleCase(str)
 // Pseudocode:
-// 1. Convert the string to lowercase.
-// 2. Remove spaces, punctuation, and other non-alphanumeric characters.
-// 3. Compare characters from the beginning and end.
-// 4. If any pair differs, return false.
-// 5. If every pair matches, return true.
+// 1. Convert the sentence to lowercase.
+// 2. Split the sentence into words.
+// 3. Loop through each word.
+// 4. Capitalize the first letter of each word.
+// 5. Join the words with spaces and return the result.
 
-function isPalindrome(str) {
-    const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+function titleCase(str) {
+    const words = str.toLowerCase().split(" ");
+    let result = "";
 
-    for (let i = 0; i < cleaned.length / 2; i++) {
-        if (cleaned[i] !== cleaned[cleaned.length - 1 - i]) {
-            return false;
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length > 0) {
+            result += words[i][0].toUpperCase() + words[i].slice(1);
+        }
+
+        if (i < words.length - 1) {
+            result += " ";
         }
     }
 
-    return true;
+    return result;
 }
 
-// Tests
-console.log("\nChallenge 8: isPalindrome");
-console.log(isPalindrome("Never odd or even"));
-console.log(isPalindrome("Hello"));             
-console.log(isPalindrome("A man, a plan, a canal: Panama!")); 
-console.log(isPalindrome(""));                  
+console.log(titleCase("welcome to kigali tech hub"));
+console.log(titleCase("HELLO WORLD"));
+console.log(titleCase("javascript"));
+console.log(titleCase(""));
 
-// Readability vs. cleverness:
-// Comparing characters from both ends avoids building a second reversed string.
-// Building a cleaned string and reversing it can be simpler to read,
-// but the loop above demonstrates the comparison directly.
+
+
+// Challenge 10: maskPhone(phone)
+// Pseudocode:
+// 1. Check that the phone number contains exactly 10 digits.
+// 2. Check that it starts with "07".
+// 3. If either check fails, return "Invalid".
+// 4. Keep the first 3 digits and last 3 digits.
+// 5. Replace the 4 middle digits with asterisks and return the result.
+
+function maskPhone(phone) {
+    if (!/^07[0-9]{8}$/.test(phone)) {
+        return "Invalid";
+    }
+
+    return phone.slice(0, 3) + "****" + phone.slice(-3);
+}
+
+console.log("\nChallenge 10: maskPhone");
+console.log(maskPhone("0788123456")); // "078****456"
+console.log(maskPhone("0712345678")); // "071****678"
+console.log(maskPhone("12345"));      // "Invalid" 
+console.log(maskPhone("07AB123456"));
+
+
